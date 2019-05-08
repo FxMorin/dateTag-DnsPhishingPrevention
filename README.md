@@ -63,7 +63,7 @@ This option tell the program which type of method you will be using to specify t
 **`1`:** Remote File
 **`2`:** Api
 
-Depending on the method you have decided to use, you will have to specify information:
+Depending on the method you have decided to use, you will have to specify information: (only needed for choosen method)
 
 0. #### String
    `$dateTagToken = "";`
