@@ -63,6 +63,7 @@ It doesn't matter if the tag is closed or not. E.x. </dateTag> wont do anything
   ="<dateTag value='"+MD5(Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now)+theToken)+"'>"
 ```
 
+Feel Free to give me examples in diffrent languages for me to add!
 
 
 
