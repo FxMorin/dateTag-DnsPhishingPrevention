@@ -37,6 +37,7 @@ The system works in three parts:
 1. The dateTag on your website.
 2. The dateTag.php file
 3. The POST sender
+
 It's that easy!
    
 ## Setup
