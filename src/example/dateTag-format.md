@@ -48,19 +48,19 @@ It doesn't matter if the tag is closed or not. E.x. </dateTag> wont do anything
 ## ASP
 ```asp
   //dateTag
-  ="<dateTag value='"&Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"'>"
+  ="<dateTag value='"+Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now)+"'>"
   
   //dateTag with hashing (requires md5.vbs at https://github.com/Wikinaut/md5.vbs)
-  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now))&"'>"
+  ="<dateTag value='"+MD5(Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now))+"'>"
   
   //dateTag with string token
-  ="<dateTag value='"&Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"theStringToken'>"
+  ="<dateTag value='"+Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now)+"theStringToken'>"
   
   //dateTag with string token + hashing
-  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"theStringToken")&"'>"
+  ="<dateTag value='"+MD5(Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now)+"theStringToken")+"'>"
   
   //dateTag with remote/api token + hashing
-  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&theToken)&"'>"
+  ="<dateTag value='"+MD5(Month(Now)+"/"+Day(Now)+"/"+Year(Now)+"/"+Hour(Now)+theToken)+"'>"
 ```
 
 
