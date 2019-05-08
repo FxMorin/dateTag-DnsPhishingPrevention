@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $safe = false;
 		$url = clean($_POST['URL']);
 		$html = strtolower(file_get_contents($url));
-
 		preg_match('/<dateTag(.*?)value=\"(.*?)\"/', $html, $dateTagInfo);
 		$dateTagHash = $dateTagInfo[1];
     if ($dateTagHash != "") {
@@ -58,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		} elseif ($dateTagTokenType == 2) { //Api
 			// use key 'http' even if you send the request to https://...
 			$options = array(
-    		'http' => array(
-        	'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        	'method'  => 'POST',
-        	'content' => http_build_query(array())
-    		)
+    				'http' => array(
+        			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        			'method'  => 'POST',
+        			'content' => http_build_query(array())
+    			)
 			);
 			$context  = stream_context_create($options);
 			$result = file_get_contents($dateTagApi, false, $context);
@@ -77,20 +76,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		}
-    if ($safe) {
+	if ($safe) {
   		//=========================
   		//   NOT A PHISHING SITE
   		//=========================
-  						echo 1;
+  		echo 1;
   	} else {
   		//=========================
   		//     A PHISHING SITE
   		//=========================
-  						echo 0;
+  		echo 0;
   	}
 	} else { //If dateTag was not found or if it was empty
-    echo 2;
-  }
+    		echo 2;
+  	}
   }
 }
 ?>
