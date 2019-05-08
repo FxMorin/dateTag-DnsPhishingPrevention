@@ -3,6 +3,8 @@ These are the tag's which you place on your website. They must be running back-e
 
 ## Node.js:
 ```js
+  //var d = new Date().toLocaleString("en-US", {timeZone: "America/Toronto"}); //Use this to set timezone if needed
+  var d = new Date();
   var md5 = require('md5'); //https://www.npmjs.com/package/md5
   var dateTag = document.createElement("dateTag");
   
