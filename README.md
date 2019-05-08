@@ -147,11 +147,11 @@ Feel free to give me post requests for other languages. I will be making a seper
 ## TODO
 
 - [x] Creating the README
-- [] Add iFrame prevention
-- [] Add Proxy prevention
-- [] Add error proofing
-- [] Add configurations to dateTag.php
-- [] Adding more hash methods
-- [] Add more parameters to POST request
-- [] Add POST request security
-- [] Add other ways of using dateTag other then POST
+- [ ] Add iFrame prevention
+- [ ] Add Proxy prevention
+- [ ] Add error proofing
+- [ ] Add configurations to dateTag.php
+- [ ] Adding more hash methods
+- [ ] Add more parameters to POST request
+- [ ] Add POST request security
+- [ ] Add other ways of using dateTag other then POST
