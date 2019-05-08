@@ -8,7 +8,7 @@ date_default_timezone_set("America/Toronto");
 //access remotly so that the token changes after a certain amount of times.
 //If the token is incorrect, the program checks the hour before, if that one also
 //fails then its a phishing site.
-$dateTagHashing = false;
+$dateTagHashing = true;
 $dateTagTokenType = 0; //0=string, 1=remote file, 2=api
 $dateTagToken = "";
 $dateTagRemote = "";
@@ -37,10 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		preg_match('/<dateTag(.*?)value=\"(.*?)\"/', $html, $dateTagInfo);
 		$dateTagHash = $dateTagInfo[1];
+    if ($dateTagHash != "") {
 		if ($dateTagTokenType == 0){ //string
 			if ($dateTagHash == md5(date("n/j/Y/G").$dateTagToken)) {
 				$safe = true;
-			} elseif ($dateTagHash == md5(date("n/j/Y/G").(date("H")-1).$dateTagToken)) { //Add 5 min token change period (currently token lasts 2 hours without it)
+			} elseif ($dateTagHash == md5(date("n/j/Y/").(date("G")-1).$dateTagToken)) { //Add 5 min token change period (currently token lasts 2 hours without it)
 				$safe = true;
 			} else {
 				$safe = false;
@@ -76,17 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		}
-	}
-	if ($safe) {
-		//=========================
-		//   NOT A PHISHING SITE
-		//=========================
-						echo 1;
-	} else {
-		//=========================
-		//     A PHISHING SITE
-		//=========================
-						echo 0;
-	}
+    if ($safe) {
+  		//=========================
+  		//   NOT A PHISHING SITE
+  		//=========================
+  						echo 1;
+  	} else {
+  		//=========================
+  		//     A PHISHING SITE
+  		//=========================
+  						echo 0;
+  	}
+	} else { //If dateTag was not found or if it was empty
+    echo 2;
+  }
+  }
 }
 ?>
