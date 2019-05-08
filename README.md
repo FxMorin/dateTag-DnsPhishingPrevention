@@ -150,6 +150,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 - [ ] Add iFrame prevention
 - [ ] Add Proxy prevention
 - [ ] Add error proofing
+- [ ] Add ability to change tag used for dateTag
 - [ ] Add configurations to dateTag.php
 - [ ] Adding more hash methods
 - [ ] Add more parameters to POST request
