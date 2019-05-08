@@ -33,6 +33,12 @@ If you need help setting it up. Contact me!
 2. Make a POST request to the dateTag.php file whenever you want to check an url.
    Check [Communication](#communication) for more help! or Check [Examples](#examples) for examples on how to make the post requests!
    
+The system works in three parts:
+1. The dateTag on your website.
+2. The dateTag.php file
+3. The POST sender
+It's that easy!
+   
 ## Setup
 dateTag needs to be added to your website for it to work. The whole purpose of dateTag is so that you can recognise your own site depending on how it acts. This means dateTag must be run on the server-side of your website, so that phisherman can't see how to add it to there phishing sites.
 
