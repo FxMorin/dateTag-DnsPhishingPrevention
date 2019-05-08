@@ -7,6 +7,12 @@ dateTag is minimal, to use it properly you should only call the dateTag.php on s
 
 This version of dateTag is a much simpler version then the current dateTag being used in my project, my project uses dateTag as a small part of its core sytstem. Although this version of dateTag still gets a 99% DNS Phishing Identification Rate!
 
+I just want to make it clear that this only protects you against DNS (Domain Name System) Phishing Sites, where they spoof there Domain Name so it looks like yours. These sites are 98% perfect copies of the original one, making it pretty much impossible for you to spot that its a phishing site. Although the reason I built this is because 
+> According to the Federal Trade Commission, over 96% of companies operating are vulnerable to domain spoofing attacks in one form or another. According to other research, 91% of phishing attacks are display name spoofs. The bottom line is that domain name spoofing is probably threatening your company.
+> - https://www.phishprotection.com/content/domain-name-spoofing/
+
+If you need help setting it up. Contact me!
+
 ## Contents
 
 - [Quick Start](#quick-start)
