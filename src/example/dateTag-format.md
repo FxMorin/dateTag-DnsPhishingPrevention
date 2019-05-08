@@ -2,7 +2,7 @@
 These are the tag's which you place on your website. They must be running back-end!
 It doesn't matter if the tag is closed or not. E.x. </dateTag> wont do anything
 
-Example of what tag should look like: <dateTag value="f3dce3f6672951976f9809abdd2c1a3b"> (value will be diffrent)
+Example of what tag should look like: `<dateTag value="f3dce3f6672951976f9809abdd2c1a3b">` (value will be diffrent)
 
 ## Node.js:
 ```js
