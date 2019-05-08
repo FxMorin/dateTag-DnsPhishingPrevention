@@ -9,19 +9,19 @@ These are the tag's which you place on your website. They must be running back-e
   var dateTag = document.createElement("dateTag");
   
   //dateTag
-  dateTag.value = d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+(d.getHours()+1);
+  dateTag.value = d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+d.getHours();
   
   //dateTag with hashing (requires md5.js or node package md5)
-  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+(d.getHours()+1));
+  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+d.getHours());
   
   //dateTag with string token
-  dateTag.value = d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+(d.getHours()+1)+"theStringToken";
+  dateTag.value = d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+d.getHours()+"theStringToken";
   
   //dateTag with string token + hashing
-  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+(d.getHours()+1)+"theStringToken");
+  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+d.getHours()+"theStringToken");
   
   //dateTag with remote/api token + hashing
-  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+(d.getHours()+1)+tokenVar);
+  dateTag.value = md5(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear()+"/"+d.getHours()+tokenVar);
   
   document.body.appendChild(dateTag);
 ```
