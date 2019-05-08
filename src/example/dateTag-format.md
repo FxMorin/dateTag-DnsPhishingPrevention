@@ -1,5 +1,6 @@
 # dateTag "tag" Format Examples
 These are the tag's which you place on your website. They must be running back-end!
+It doesn't matter if the tag is closed or not. E.x. </dateTag> wont do anything
 
 ## Node.js:
 ```js
@@ -43,3 +44,34 @@ These are the tag's which you place on your website. They must be running back-e
   //dateTag with remote/api token + hashing
   echo '<dateTag value="'.md5(date("n/j/Y/G").$remoteToken).'">';
 ```
+
+## ASP
+```asp
+  //dateTag
+  ="<dateTag value='"&Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"'>"
+  
+  //dateTag with hashing (requires md5.vbs at https://github.com/Wikinaut/md5.vbs)
+  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now))&"'>"
+  
+  //dateTag with string token
+  ="<dateTag value='"&Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"theStringToken'>"
+  
+  //dateTag with string token + hashing
+  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&"theStringToken")&"'>"
+  
+  //dateTag with remote/api token + hashing
+  ="<dateTag value='"&MD5(Month(Now)&"/"&Day(Now)&"/"&Year(Now)&"/"&Hour(Now)&theToken)&"'>"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
