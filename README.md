@@ -169,6 +169,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 - [ ] Add more parameters to POST request
 - [ ] Add POST request security
 - [ ] Add other ways of using dateTag other then POST
+- [ ] Make a wiki for the project
 
 ## Comment
 
