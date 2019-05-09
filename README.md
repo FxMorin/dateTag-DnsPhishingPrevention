@@ -160,7 +160,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 ## TODO
 
 - [x] Creating the README
-- [ ] Add iFrame prevention
+- [x] Add iFrame prevention
 - [ ] Add Proxy prevention
 - [ ] Add error proofing
 - [ ] Add ability to change tag used for dateTag
