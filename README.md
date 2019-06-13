@@ -189,6 +189,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 - [x] Add iFrame prevention (v 1.1)
 - [x] Add Proxy prevention
 - [ ] Add error proofing
+- [ ] Add ability to change time which dateTag lasts
 - [ ] Add ability to change tag used for dateTag
 - [ ] Add configurations to dateTag.php
 - [ ] Adding more hash methods
