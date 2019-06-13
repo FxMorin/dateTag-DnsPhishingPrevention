@@ -1,5 +1,4 @@
-Current Version: 1.2
-Check changelog [here](../master/CHANGELOG.md)
+Current Version: 1.2 - Check changelog [here](../master/CHANGELOG.md)
 
 # dateTag DNS Phishing Prevention
 It's very important that you read the full README for this project since it requires date/time sync and POST requests
