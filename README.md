@@ -1,3 +1,6 @@
+Current Version: 1.2
+Check changelog [here](../blob/master/changelog.md)
+
 # dateTag DNS Phishing Prevention
 It's very important that you read the full README for this project since it requires date/time sync and POST requests
 
@@ -39,7 +42,7 @@ The system works in three parts:
 3. The POST sender
 
 It's that easy!
-   
+
 ## Setup
 dateTag needs to be added to your website for it to work. The whole purpose of dateTag is so that you can recognise your own site depending on how it acts. This means dateTag must be run on the server-side of your website, so that phisherman can't see how to add it to there phishing sites.
 
@@ -55,7 +58,7 @@ There are multiple examples for many popular back-end web programming languages!
    
 ## Configuration
 
-dateTag has a few multiple configurations which can be changed in dateTag.php (more coming soon!)
+dateTag has multiple configurations which can be changed in dateTag.php (more coming soon!)
 
 #### `date_default_timezone_set("America/Toronto");`
 
@@ -76,20 +79,24 @@ This option tell the program which type of method you will be using to specify t
 **`1`:** Remote File
 **`2`:** Api
 
-Depending on the method you have decided to use, you will have to specify information: (only needed for choosen method)
+Depending on the method you have decided to use, you will have to specify information: (only needed if hashing is enabled)
 
 0. #### String
    `$dateTagToken = "";`
    Specify a String which will be used as the token
 
 1. #### Remote File
-   `$dateTagRemote = "";`
+   `$dateTagToken = "";`
    Specify a URL to a file containing the token you wish to use
 
 2. #### Api
-   `$dateTagApi = "";`
+   `$dateTagToken = "";`
    Specify a URL which should be called to receive the token from
 
+
+#### `$testingMode = false;`
+
+This option if set to `true` will run the program in testing mode. Testing mode will make it easier for you to fix situations such as incorrect formating or incorrect posts. Testing mode is basically verbose, make sure to disable testing mode since it my make it possible for phisherman to find a way around dateTag! To find out how to properly underdstand testing mode. Make sure to read through the entire documentation!
 
 ## Communication
 
@@ -101,13 +108,15 @@ dateTag currently only checks for one parameter: (more coming soon)
 `URL` should be the url which you want to check
 
 ### Response
-dateTag currently only responds with either 0, 1, or 2:
+dateTag currently only responds with either 0, or 1:
 
 0) means that the url is a phishing site, since the dateTag is incorrect. This could mean it was badly setup!
 
 1) means that your url is not a phishing site, and that your dateTag seems to be working well.
 
-2) means that your dateTag was either not found, or that it contains and empty value. Most of the time this is because its a    phishing site & they did not include the dateTag, therfore 2 should be seen as a phishing site unless you are testing. A    testing mode will be coming out soon so, 2 will most likley get removed soon and become 0.
+**Testing Mode:** When using testing mode, dateTag will also respond with 2
+
+2) means that the dateTag was not found or was empty
 
 ## Examples
 #### Making a post request
@@ -160,8 +169,8 @@ Feel free to give me post requests for other languages. I will be making a seper
 ## TODO
 
 - [x] Creating the README
-- [x] Add iFrame prevention
-- [ ] Add Proxy prevention
+- [x] Add iFrame prevention (v 1.1)
+- [x] Add Proxy prevention (v 1.2)
 - [ ] Add error proofing
 - [ ] Add ability to change tag used for dateTag
 - [ ] Add configurations to dateTag.php
