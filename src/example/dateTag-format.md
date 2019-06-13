@@ -29,7 +29,7 @@ PHP is currently the only language with UniqueID examples included
   echo '<dateTag value="'.md5(date("n/j/Y/G").$remoteToken.$_SERVER["REMOTE_ADDR"]??null).'">';
   
   //dateTag with remote/api token + hashing + UniqueID[Both]
-  echo '<dateTag value="'.md5(date("n/j/Y/G").$remoteToken.$_SERVER["REMOTE_ADDR"]??null." ".$_SERVER['HTTP_USER_AGENT']??null).'">';
+  echo '<dateTag value="'.md5(date("n/j/Y/G").$remoteToken.$_SERVER["REMOTE_ADDR"]??null." ".$_SERVER["HTTP_USER_AGENT"]??null).'">';
   
   //dateTag with remote/api token + hashing + UniqueID[get_Browser()]
   echo '<dateTag value="'.md5(date("n/j/Y/G").$remoteToken.implode("",get_Browser())).'">';
