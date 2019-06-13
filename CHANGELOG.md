@@ -10,6 +10,7 @@ Here you will find everything you need to known about the dateTag updates
 ### V1.1
 - Added Token options
 - Added PHP timezone header
+- Added iFrame prevention
 
 ### V1
 - dateTag was created
