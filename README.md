@@ -48,13 +48,14 @@ dateTag needs to be added to your website for it to work. The whole purpose of d
 
 Here is the format which you must use, depending on the configuration you have setup:
 
-`<dateTag value=" md5( MM/DD/YYYY/HH + token ) ">`
+`<dateTag value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
 
 MM = 1-12  **|**  DD = 1-31  **|**  YYYY = 1000-9999  **|**  HH = 0-23
 
 There are many other ways to write the tag, such as removing the md5 if hashing is disabled!
 You can get a list of premade dateTag's to add to your site [here](../blob/master/src/examples/dateTag-format.md)
 There are multiple examples for many popular back-end web programming languages!
+Not all features are pre-made in all languages. If you want to add some, feel free to contact me!
    
 ## Configuration
 
@@ -92,6 +93,23 @@ Depending on the method you have decided to use, you will have to specify inform
 2. #### Api
    `$dateTagToken = "";`
    Specify a URL which should be called to receive the token from
+   
+   
+#### `$dateTagUniqueID = true;`
+
+This option if set to `true` will tell the program that the dateTag will be using a uniqueID. Unique ID stops the ability to use a server-side proxy to display the site, preventing proxy based dns phishing where it loads the real site with small modification to phish you. There are 4 types of Unique ID's you can use.
+
+
+#### `$dateTagUniqueType = 0;`
+
+This option tell the program which type of information you will be using as your unique ID to add to the dateTag value. The possible information that can be added are:
+
+**`0`:** UserAgent
+**`1`:** Ip-Address
+**`2`:** UserAgent & Ip-Address
+**`3`:** PHP get_Browser()
+
+Depending on the information you decided to use, you will have to add the information to your dateTag. Currently only PHP based dateTag's (on websites) can support option 3. (unless your willing to make it) Depending on the language you are using, some of the options may not work for you due to there different formating. Although PHP examples are available [here](../blob/master/src/examples/dateTag-format.md)
 
 
 #### `$testingMode = false;`
@@ -170,7 +188,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 
 - [x] Creating the README
 - [x] Add iFrame prevention (v 1.1)
-- [ ] Add Proxy prevention
+- [x] Add Proxy prevention
 - [ ] Add error proofing
 - [ ] Add ability to change tag used for dateTag
 - [ ] Add configurations to dateTag.php
@@ -179,6 +197,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 - [ ] Add POST request security
 - [ ] Add other ways of using dateTag other then POST
 - [ ] Make a wiki for the project
+- [ ] Make file for post requests in other programming languages
 
 ## Comment
 
