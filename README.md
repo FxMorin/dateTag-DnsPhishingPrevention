@@ -31,7 +31,7 @@ If you need help setting it up. Contact me!
    ```bash
    $ git clone https://github.com/fxmorin/dateTag-DnsPhishingPrevention.git
    ```
-   You can also just download the [dateTag.php](../blob/master/src/dateTag.php) file & add it to your project
+   You can also just download the [dateTag.php](../master/src/dateTag.php) file & add it to your project
    
 2. Make a POST request to the dateTag.php file whenever you want to check an url.
    Check [Communication](#communication) for more help! or Check [Examples](#examples) for examples on how to make the post requests!
@@ -53,7 +53,7 @@ Here is the format which you must use, depending on the configuration you have s
 MM = 1-12  **|**  DD = 1-31  **|**  YYYY = 1000-9999  **|**  HH = 0-23
 
 There are many other ways to write the tag, such as removing the md5 if hashing is disabled!
-You can get a list of premade dateTag's to add to your site [here](../blob/master/src/examples/dateTag-format.md)
+You can get a list of premade dateTag's to add to your site [here](../master/src/examples/dateTag-format.md)
 There are multiple examples for many popular back-end web programming languages!
 Not all features are pre-made in all languages. If you want to add some, feel free to contact me!
    
@@ -109,7 +109,7 @@ This option tell the program which type of information you will be using as your
 **`2`:** UserAgent & Ip-Address
 **`3`:** PHP get_Browser()
 
-Depending on the information you decided to use, you will have to add the information to your dateTag. Currently only PHP based dateTag's (on websites) can support option 3. (unless your willing to make it) Depending on the language you are using, some of the options may not work for you due to there different formating. Although PHP examples are available [here](../blob/master/src/examples/dateTag-format.md)
+Depending on the information you decided to use, you will have to add the information to your dateTag. Currently only PHP based dateTag's (on websites) can support option 3. (unless your willing to make it) Depending on the language you are using, some of the options may not work for you due to there different formating. Although PHP examples are available [here](../master/src/examples/dateTag-format.md)
 
 
 #### `$testingMode = false;`
