@@ -3,11 +3,9 @@ Current Version: 1.2 - Check changelog [here](../master/CHANGELOG.md)
 # dateTag DNS Phishing Prevention
 It's very important that you read the full README for this project since it requires date/time sync and POST requests
 
-dateTag is a powerful tag that can easily identify a phishing site. dateTag is currently part of a larger project that will be released in a couple months. dateTag alone is able to perfectly identify DNS phishing sites.
+dateTag is a powerful tag that can easily identify a DNS phishing site. This version of dateTag has a 94% DNS Phishing Identification Rate!
 
-dateTag is minimal, to use it properly you should only call the dateTag.php on sites you know usually have dateTag. This means that you still need to write when dateTag.php gets called.
-
-This version of dateTag is a much simpler version then the current dateTag being used in my project, my project uses dateTag as a small part of its core sytstem. Although this version of dateTag still gets a 99% DNS Phishing Identification Rate!
+dateTag is minimal, to use it properly you should only call the dateTag.php on sites you know usually have dateTag. This means that you still need to code when dateTag.php should get called. What you should do is, make a list of your websites, add dateTag to all of them. Then call dateTag.php whenever you visit one of your sites in your list.
 
 I just want to make it clear that this only protects you against DNS (Domain Name System) Phishing Sites, where they spoof there Domain Name so it looks like yours. These sites are 98% perfect copies of the original one, making it pretty much impossible for you to spot that its a phishing site. Although the reason I built this is because 
 > According to the Federal Trade Commission, over 96% of companies operating are vulnerable to domain spoofing attacks in one form or another. According to other research, 91% of phishing attacks are display name spoofs. The bottom line is that domain name spoofing is probably threatening your company.
