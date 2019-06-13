@@ -170,7 +170,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 
 - [x] Creating the README
 - [x] Add iFrame prevention (v 1.1)
-- [x] Add Proxy prevention (v 1.2)
+- [ ] Add Proxy prevention
 - [ ] Add error proofing
 - [ ] Add ability to change tag used for dateTag
 - [ ] Add configurations to dateTag.php
