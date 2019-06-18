@@ -118,7 +118,7 @@ Depending on the information you decided to use, you will have to add the inform
 
 #### `$customTag = true;`
 
-This option if set to `true` will tell the program that the dateTag will be using a custom tag instead of <dateTag>. It makes it nearly impossible for a phisherman to find out if your using dateTag. dateTag is not common through, so this feature isin't really going to affect the security of the site.
+This option if set to `true` will tell the program that the dateTag will be using a custom tag instead of `<dateTag>`. It makes it nearly impossible for a phisherman to find out if your using dateTag. dateTag is not common through, so this feature isin't really going to affect the security of the site.
 
 
 #### `$customTagString = "";`
