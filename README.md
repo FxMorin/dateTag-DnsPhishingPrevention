@@ -50,7 +50,9 @@ Here is the format which you must use, depending on the configuration you have s
 or
 
 `<yourCustomTagName value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
+
 If you are using customTag
+
 
 MM = 1-12  **|**  DD = 1-31  **|**  YYYY = 1000-9999  **|**  HH = 0-23
 
