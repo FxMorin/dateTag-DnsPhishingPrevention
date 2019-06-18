@@ -1,4 +1,4 @@
-Current Version: 1.2 - Check changelog [here](../master/CHANGELOG.md)
+Current Version: 1.2.1 - Check changelog [here](../master/CHANGELOG.md)
 
 # dateTag DNS Phishing Prevention
 It's very important that you read the full README for this project since it requires date/time sync and POST requests
@@ -46,6 +46,9 @@ dateTag needs to be added to your website for it to work. The whole purpose of d
 Here is the format which you must use, depending on the configuration you have setup:
 
 `<dateTag value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
+or
+`<yourCustomTagName value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
+If you are using customTag
 
 MM = 1-12  **|**  DD = 1-31  **|**  YYYY = 1000-9999  **|**  HH = 0-23
 
@@ -63,13 +66,13 @@ dateTag has multiple configurations which can be changed in dateTag.php (more co
 Make sure that the default timezone in dateTag is the same as the POST sender. Since if its not theres a chance you both have a diffrent timezone and that the time will never sync up, causing the dateTag.php to always respond 0
 
 
-#### `$dateTagHashing = true;`
+#### `$hashing = true;`
 
 This option if set to `true` will tell the program that the dateTag value is hashed using md5: (more hash types coming soon)
 **It's highly  recommended to have hashing enabled** , since phishing sites could try to mimic the dateTag's value if they find a pattern.
 
 
-#### `$dateTagTokenType = 0;`
+#### `$tokenType = 0;`
 
 This option tell the program which type of method you will be using to specify the token to add to the dateTag value. The possible methods are:
 
@@ -80,24 +83,24 @@ This option tell the program which type of method you will be using to specify t
 Depending on the method you have decided to use, you will have to specify information: (only needed if hashing is enabled)
 
 0. #### String
-   `$dateTagToken = "";`
+   `$token = "";`
    Specify a String which will be used as the token
 
 1. #### Remote File
-   `$dateTagToken = "";`
+   `$token = "";`
    Specify a URL to a file containing the token you wish to use
 
 2. #### Api
-   `$dateTagToken = "";`
+   `$token = "";`
    Specify a URL which should be called to receive the token from
    
    
-#### `$dateTagUniqueID = true;`
+#### `$uniqueID = true;`
 
 This option if set to `true` will tell the program that the dateTag will be using a uniqueID. Unique ID stops the ability to use a server-side proxy to display the site, preventing proxy based dns phishing where it loads the real site with small modification to phish you. There are 4 types of Unique ID's you can use.
 
 
-#### `$dateTagUniqueType = 0;`
+#### `$uniqueType = 0;`
 
 This option tell the program which type of information you will be using as your unique ID to add to the dateTag value. The possible information that can be added are:
 
@@ -109,12 +112,23 @@ This option tell the program which type of information you will be using as your
 Depending on the information you decided to use, you will have to add the information to your dateTag. Currently only PHP based dateTag's (on websites) can support option 3. (unless your willing to make it) Depending on the language you are using, some of the options may not work for you due to there different formating. Although PHP examples are available [here](../master/src/examples/dateTag-format.md)
 
 
+#### `$customTag = true;`
+
+This option if set to `true` will tell the program that the dateTag will be using a custom tag instead of <dateTag>. It makes it nearly impossible for a phisherman to find out if your using dateTag. dateTag is not common through, so this feature isin't really going to affect the security of the site.
+
+
+#### `$customTagString = "";`
+
+This sets the customTag string. In this version (1 1.2.1) you can only use characters a-z, A-Z, & 0-9. Also, naming the customTag to a tag that already exists will cause the site to be declared as a phishing site.
+
+
 #### `$testingMode = false;`
 
-This option if set to `true` will run the program in testing mode. Testing mode will make it easier for you to fix situations such as incorrect formating or incorrect posts. Testing mode is basically verbose, make sure to disable testing mode since it my make it possible for phisherman to find a way around dateTag! To find out how to properly underdstand testing mode. Make sure to read through the entire documentation!
+This option if set to `true` will run the program in testing mode. Testing mode will make it easier for you to fix situations such as incorrect formating or incorrect posts. Testing mode is basically verbose, make sure to disable testing mode since it may make it possible for phisherman to find a way around dateTag! To find out how to properly understand testing mode. Make sure to read through the entire documentation!
 
 ## Communication
 
+In upcoming releases, a library version will be added. Allowing calls straight from PHP.
 This program currently requires you to make a POST request to the dateTag.php file. Here is how dateTag reads the POST request, and how it responds:
 
 ### Parameters
@@ -129,9 +143,8 @@ dateTag currently only responds with either 0, or 1:
 
 1) means that your url is not a phishing site, and that your dateTag seems to be working well.
 
-**Testing Mode:** When using testing mode, dateTag will also respond with 2
-
-2) means that the dateTag was not found or was empty
+**Testing Mode:** 
+When using testing mode, dateTag will respond with multiple strings. These strings will help you understand what you are doing wrong if you are having any issues.
 
 ## Examples
 #### Making a post request
@@ -183,17 +196,17 @@ Feel free to give me post requests for other languages. I will be making a seper
 
 ## TODO
 
-- [x] Creating the README
+- [x] Creating the README (v 1.1)
 - [x] Add iFrame prevention (v 1.1)
 - [x] Add Proxy prevention (v 1.2)
+- [x] Add descriptive testingMode responses (v 1.2.1)
+- [x] Add ability to change tag used for dateTag (v 1.2.1)
+- [ ] Add other ways of using dateTag other then POST (coming soon)
 - [ ] Add error proofing
 - [ ] Add ability to change time which dateTag lasts
-- [ ] Add ability to change tag used for dateTag
-- [ ] Add configurations to dateTag.php
 - [ ] Adding more hash methods
 - [ ] Add more parameters to POST request
 - [ ] Add POST request security
-- [ ] Add other ways of using dateTag other then POST
 - [ ] Make a wiki for the project
 - [ ] Make file for post requests in other programming languages
 
