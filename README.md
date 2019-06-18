@@ -46,7 +46,9 @@ dateTag needs to be added to your website for it to work. The whole purpose of d
 Here is the format which you must use, depending on the configuration you have setup:
 
 `<dateTag value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
+
 or
+
 `<yourCustomTagName value=" md5( MM/DD/YYYY/HH + token + uniqueId ) ">`
 If you are using customTag
 
