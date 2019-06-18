@@ -9,7 +9,7 @@ Here you will find everything you need to known about the dateTag updates
 - Removed dateTag infront of variables
 - Implemented some DRY principal (Don't Repeat Yourself)
 - UniqueID now set to false by default
-- Other slight changes...
+- Other slight changes... 
 
 ### V1.2
 - Added UniqueID for proxy detection
