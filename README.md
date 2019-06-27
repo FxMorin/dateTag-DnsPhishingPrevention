@@ -1,4 +1,4 @@
-Current Version: 1.2.1 - Check changelog [here](../master/CHANGELOG.md)
+Current Version: 1.3.0 - Check changelog [here](../master/CHANGELOG.md)
 
 # dateTag DNS Phishing Prevention
 It's very important that you read the full README for this project since it requires date/time sync and POST requests
@@ -115,16 +115,6 @@ This option tell the program which type of information you will be using as your
 Depending on the information you decided to use, you will have to add the information to your dateTag. Currently only PHP based dateTag's (on websites) can support option 3. (unless your willing to make it) Depending on the language you are using, some of the options may not work for you due to there different formating. Although PHP examples are available [here](../master/src/examples/dateTag-format.md)
 
 
-#### `$customTag = true;`
-
-This option if set to `true` will tell the program that the dateTag will be using a custom tag instead of `<dateTag>`. It makes it nearly impossible for a phisherman to find out if your using dateTag. dateTag is not common through, so this feature isin't really going to affect the security of the site.
-
-
-#### `$customTagString = "";`
-
-This sets the customTag string. In this version (1 1.2.1) you can only use characters a-z, A-Z, & 0-9. Also, naming the customTag to a tag that already exists will cause the site to be declared as a phishing site.
-
-
 #### `$testingMode = false;`
 
 This option if set to `true` will run the program in testing mode. Testing mode will make it easier for you to fix situations such as incorrect formating or incorrect posts. Testing mode is basically verbose, make sure to disable testing mode since it may make it possible for phisherman to find a way around dateTag! To find out how to properly understand testing mode. Make sure to read through the entire documentation!
@@ -137,7 +127,7 @@ This program currently requires you to make a POST request to the dateTag.php fi
 ### Parameters
 dateTag currently only checks for one parameter: (more coming soon)
 
-`URL` should be the url which you want to check
+`dateTag` should be the dateTag value found on a website which you want to check
 
 ### Response
 dateTag currently only responds with either 0, or 1:
@@ -154,7 +144,7 @@ When using testing mode, dateTag will respond with multiple strings. These strin
 
 **Javascript:** (This does not need to be server-side. It could be part of a chrome extension)
 ```js
-function checkUrl(url) {
+function checkUrl(dateTag) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -166,21 +156,15 @@ function checkUrl(url) {
   };
   xhttp.open("POST", "/path/to/file/dateTag.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("URL="+url);
+  xhttp.send("dateTag="+dateTag);
 }
 ```
 **PHP:**
 ```php
-function checkUrl($url) {
-    $options = array('http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query(array())
-    ));
-		$context  = stream_context_create($options);
-		$result = file_get_contents("/path/to/file/dateTag.php", false, $context);
+function checkUrl($dateTag) {
+    $result = HTTPRequester::HTTPPost("/path/to/file/dateTag.php", array("dateTag" => $dateTag));
     if ($result === 1) { //not a phishing site
-      return true;
+      	return true;
     }
     return false;
 }
@@ -188,8 +172,8 @@ function checkUrl($url) {
 **Python:**
 ```python
 import requests
-def checkUrl(url):
-    r = requests.post("/path/to/file/dateTag.php", data = {"URL" : url})
+def checkUrl(dateTag):
+    r = requests.post("/path/to/file/dateTag.php", data = {"dateTag" : dateTag})
     if r.text == 1:
         return true
     return false
