@@ -1,6 +1,10 @@
 # Welcome to the dateTag changelog
 Here you will find everything you need to known about the dateTag updates
 
+### V1.3.0
+- Fixed huge security flaw where program would not recognise a dns phishing site since it was not running on the same network.
+- Slight changes & fixes!
+
 ### V1.2.1
 - Massive upgrade to testingMode. testingMode will now give descriptive responses
 - Added ability to use a customTag instead of dateTag
