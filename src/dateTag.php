@@ -1,28 +1,30 @@
 <?php
 /**
   * @author Fx Morin
-  * @version 1.2.1
+  * @version 1.3.0
   */
 date_default_timezone_set("America/Toronto"); //Yes I live in Toronto
 //Make sure that the timezone is the same on both the website & dateTag
 
-//dateTag is a method created by Fx Morin. It easily detects dns phishing sites
+//dateTag is a program created by Fx Morin. It easily detects dns phishing sites
 //dateTag is a tag '<dateTag value="f3dce3f6672951976f9809abdd2c1a3b">' that holds
 //a md5 hash of the current date and time in hours, a token, and a UniqueID. The
 //token is what makes it so nobody can bypass this. The token is given by you, it
 //can also be access remotly so that the token changes after a certain amount of
 //times. If the token is incorrect, the program checks the hour before, if that
 //one also fails then its a phishing site. To not use token (not recommended) just
-//use TokenType 0, & set the dateTagToken to an empty string! UniqueID was added
-//in Version 1.3, it stops the ability to use a server-side proxy to display the
-//site if it has a modified login to phish you. UniqueID has 4 different ways of
-//creating an ID. For more info, visit https://github.io/fxmorin/dateTag
+//use TokenType 0, & set the dateTagToken to an empty string! UniqueID stops the
+//ability to use a server-side proxy to display the site if it has a modified
+//login to phish you. UniqueID has 4 different ways of creating an ID.
+//For more info, visit https://github.com/fxmorin/dateTag-DnsPhishingPrevention
+
 $hashing = true;
 $tokenType = 0; //0=string, 1=remote file, 2=api
 $token = "";
 //The dateTag date format is "n/j/Y/G"
 //dateTag can be placed anywhere in the site
-//go to https://github.io/fxmorin/dateTag to get more information on the API
+//go to https://github.com/fxmorin/dateTag-DnsPhishingPrevention to get more
+//information on the API
 
 $uniqueID = false;
 $uniqueType = 0; //0=userAgent,1=ip-address,2=both,3=get_Browser()
@@ -31,22 +33,27 @@ $uniqueType = 0; //0=userAgent,1=ip-address,2=both,3=get_Browser()
 //would prevent XSS, Click-Jacking, & proxy's from phishing you. Please read
 //the online documentation on this before using it.
 
-$customTag = true;
-$customTagString = "dateTag"; //Must be a-z, A-Z, 0-9
+// ========== DEPRECATED ==========
+//$customTag = false;
+//$customTagString = "dateTag"; //Must be a-z, A-Z, 0-9
 //DO NOT USE SPECIAL CHARACTERS. DO NOT USE EXISTING TAGS such as <html>
 //CustomTag is a feature that you should use. It makes it nearly impossible for
 //a phisherman to find out if your using dateTag. dateTag is not common through
 //so this feature isin't really going to affect the security of the site. It
 //does help dateTag blend in to your site better & provides a personal touch.
-//Be warned, characters will not work for the time being. This will be updated
-//in a later release. E.x. if $customTagString = "fx"; Then <fx value="...">
-
+//Be warned, special characters will not work for the time being. This will be
+//updated in a later release. E.x. if $customTagString = "fx"; Then <fx value="...">
+//This feature has now been converted so that it must now be client-side.
+//You must look for the tag yourself. In PHP you can use:
+//preg_match('/</'.$dateTag.'/(.*?)value=\"(.*?)\"/', $html, $info);
+//$dateTag being the name of the tag your looking for. $html is the website html.
+//And $info is the data, $info[1] is the dateTag value.
 
 $testingMode = false;
 //This allows you to see how the program will respond. Allowing you to test if
 //dateTag is properly installed on the website, the dateTag.php, & the POST sender
 //testingMode is still a work in progress, more is being added in every release
-//For more information go to https://github.io/fxmorin/dateTag
+//For more information go to https://github.com/fxmorin/dateTag-DnsPhishingPrevention
 
 //==============================================================================
 //                      DO NOT MODIFY PAST THIS POINT
@@ -85,26 +92,9 @@ function isSafe($h,$t,$US) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty($_POST['URL']) && isset($_POST['URL'])) {
-        $uniqueString = ""; $safe = false; $url = clean($_POST['URL']);
-		    $html = strtolower(file_get_contents($url));
+    if (!empty($_POST['dateTag']) && isset($_POST['dateTag'])) {
+        $uniqueString = ""; $safe = false; $hash = $_POST['dateTag'];
         //security to prevent looking for existing tags will be added in a later release
-        if ($customTag && $customTagString != "") {
-            if (clean($customTagString) == $customTagString) {
-                preg_match('/</'.$dateTag.'/(.*?)value=\"(.*?)\"/', $html, $info);
-            } else {
-                if ($testingMode) {
-                    $console[sizeof($console)+1] = "Your customTagString contains illegal characters. Therefore 'dateTag' has been set as your string!";
-                }
-                preg_match('/<dateTag(.*?)value=\"(.*?)\"/', $html, $info);
-            }
-        } else {
-            if ($testingMode && $customTag) {
-                $console[sizeof($console)+1] = "You left your customTagString empty. Therefore 'dateTag' has been set as your string!";
-            }
-            preg_match('/<dateTag(.*?)value=\"(.*?)\"/', $html, $info);
-        }
-		    $hash = $info[1];
         if ($uniqueID) {
             if ($uniqueType == 0) { //userAgent
                 $uniqueString = $_SERVER['HTTP_USER_AGENT']??null;
@@ -165,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "console is empty";
         }
     } else if ($testingMode) {
-        echo "URL has not been set in your post request!!!";
+        echo "dateTag has not been set in your post request!!!";
     }
 } else if ($testingMode) {
     echo "This needs to be a POST request for security reasons!";
