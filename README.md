@@ -188,7 +188,7 @@ Feel free to give me post requests for other languages. I will be making a seper
 - [x] Add Proxy prevention (v 1.2)
 - [x] Add descriptive testingMode responses (v 1.2.1)
 - [x] Add ability to change tag used for dateTag (v 1.2.1)
-- [ ] Add other ways of using dateTag other then POST (coming soon)
+- [ ] Add other ways of using dateTag other then POST
 - [ ] Add error proofing
 - [ ] Add ability to change time which dateTag lasts
 - [ ] Adding more hash methods
